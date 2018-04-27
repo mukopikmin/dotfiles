@@ -1,0 +1,12 @@
+set encoding=utf-8
+set fileformats=unix,dos,mac
+syntax on
+set smartindent
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set number
+set t_Co=256
+set showmatch
+set cursorline
