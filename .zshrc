@@ -6,7 +6,6 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
-
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -166,12 +165,25 @@ esac
 
 # vim:set ft=zsh:
 
+########################################
+# Pathの設定
+
+# Added by Travis
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+# Use Imagemagick@6 instead Imagemagick@7
+export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-7/lib/pkgconfig
+
+# Android ADB command
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+
+# Anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+########################################
+# Key binding on Windows
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
-if [ -d $HOME/.anyenv ]
-then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
-fi
