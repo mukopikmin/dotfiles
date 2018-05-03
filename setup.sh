@@ -1,7 +1,16 @@
 #! /bin/sh
 
-set -ex
+set -e
 
-ln -s $PWD/.zshrc $HOME/.zshrc
-ln -s $PWD/.vimrc $HOME/.vimrc
+files=(".zshrc" ".vimrc")
+
+for file in ${files[@]}
+do
+  if [ -f $HOME/$file ]; then
+    echo "$file already exists. Do nothing."
+  else
+    ln -s $PWD/$file $HOME/$file
+    echo "Created symlink to $file"
+  fi
+done
 
