@@ -2,7 +2,7 @@
 
 set -e
 
-files=(".zshrc" ".vimrc")
+files=(".zshrc" ".vimrc" ".vim")
 
 for file in ${files[@]}
 do
