@@ -18,7 +18,7 @@ done
 anyenv_dir=$HOME/.anyenv
 anyenv_repo=https://github.com/riywo/anyenv
 anyenv_update_repo=https://github.com/znz/anyenv-update
-if [ ! -e $anyenv_dir ]]; then
+if [ ! -e $anyenv_dir ]; then
   git clone $anyenv_repo $anyenv_dir
   mkdir -p $anyenv_dir/plugins
   git clone $anyenv_update_repo $anyenv_dir/plugins/anyenv-update
