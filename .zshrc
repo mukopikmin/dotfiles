@@ -154,6 +154,14 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
+
+        # Homewbrew autocompletions
+        if type brew &>/dev/null; then
+            FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+        fi
+
+        # Use Imagemagick@6 instead Imagemagick@7
+        export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
         ;;
     linux*)
         #Linux用の設定
@@ -169,9 +177,6 @@ esac
 # Added by Travis
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-# Use Imagemagick@6 instead Imagemagick@7
-export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
-
 # Android ADB command
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
@@ -184,8 +189,3 @@ eval "$(anyenv init -)"
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
-
-# Homewbrew autocompletions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
