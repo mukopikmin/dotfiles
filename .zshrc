@@ -169,6 +169,10 @@ case ${OSTYPE} in
         ;;
 esac
 
+if uname -r | grep -i 'microsoft'; then
+    
+fi
+
 # vim:set ft=zsh:
 
 ########################################
@@ -182,10 +186,10 @@ export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
 # Anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 
 ########################################
-# Windowsでのキーバインディング設定
+# TeraTermでのキーバインディング設定
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
