@@ -172,7 +172,7 @@ case ${OSTYPE} in
         ;;
 esac
 
-if uname -r | grep -i 'microsoft'; then
+if uname -r | grep -i 'microsoft' > /dev/null; then
     alias open="cmd.exe /c start"   
 fi
 
