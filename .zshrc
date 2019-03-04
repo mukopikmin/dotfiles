@@ -162,6 +162,9 @@ case ${OSTYPE} in
 
         # Use Imagemagick@6 instead Imagemagick@7
         export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
+        
+        # Android ADB command
+        export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
         ;;
     linux*)
         #Linux用の設定
@@ -170,25 +173,18 @@ case ${OSTYPE} in
 esac
 
 if uname -r | grep -i 'microsoft'; then
-    
+    alias open="cmd.exe /c start"   
 fi
 
 # vim:set ft=zsh:
 
-########################################
-# Pathの設定
-
 # Added by Travis
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
-# Android ADB command
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
 # Anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init - zsh)"
 
-########################################
 # TeraTermでのキーバインディング設定
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
