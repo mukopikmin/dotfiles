@@ -172,8 +172,10 @@ case ${OSTYPE} in
         ;;
 esac
 
+# If WSL
 if uname -r | grep -i 'microsoft' > /dev/null; then
-    alias open="cmd.exe /c start"   
+    alias open="cmd.exe /c start"
+    source ~/.profile
 fi
 
 # vim:set ft=zsh:
@@ -189,3 +191,4 @@ eval "$(anyenv init - zsh)"
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+
