@@ -162,6 +162,9 @@ case ${OSTYPE} in
 
         export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
         export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+        
+        # Android ADB command
+        export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
         ;;
     linux*)
         #Linux用の設定
@@ -169,23 +172,23 @@ case ${OSTYPE} in
         ;;
 esac
 
-# vim:set ft=zsh:
+# If WSL
+if uname -r | grep -i 'microsoft' > /dev/null; then
+    alias open="cmd.exe /c start"
+    source ~/.profile
+fi
 
-########################################
-# Pathの設定
+# vim:set ft=zsh:
 
 # Added by Travis
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-# Android ADB command
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-
 # Anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 
-########################################
-# Windowsでのキーバインディング設定
+# TeraTermでのキーバインディング設定
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+
