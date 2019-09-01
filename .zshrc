@@ -160,8 +160,8 @@ case ${OSTYPE} in
             FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
         fi
 
-        # Use Imagemagick@6 instead Imagemagick@7
         export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
+        export PATH="/usr/local/opt/mysql-client/bin:$PATH"
         ;;
     linux*)
         #Linux用の設定
