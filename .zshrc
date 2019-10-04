@@ -175,6 +175,8 @@ esac
 # If WSL
 if uname -r | grep -i 'microsoft' > /dev/null; then
     alias open="cmd.exe /c start"
+    alias cmd="cmd.exe"
+    
     source ~/.profile
 fi
 
