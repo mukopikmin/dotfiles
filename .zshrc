@@ -25,7 +25,10 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-
+# タイトルバーの表示設定
+# user@hostname: /current/path
+precmd() { eval 'echo -ne "\033]0;$USER@$HOST: $PWD\007"' }
+ 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
