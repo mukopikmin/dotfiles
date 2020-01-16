@@ -25,7 +25,10 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-
+# タイトルバーの表示設定
+# user@hostname: /current/path
+precmd() { eval 'echo -ne "\033]0;$USER@$HOST: $PWD\007"' }
+ 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
@@ -160,8 +163,8 @@ case ${OSTYPE} in
             FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
         fi
 
-        # Use Imagemagick@6 instead Imagemagick@7
         export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
+        export PATH="/usr/local/opt/mysql-client/bin:$PATH"
         
         # Android ADB command
         export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
@@ -175,6 +178,8 @@ esac
 # If WSL
 if uname -r | grep -i 'microsoft' > /dev/null; then
     alias open="cmd.exe /c start"
+    alias cmd="cmd.exe"
+    
     source ~/.profile
 fi
 

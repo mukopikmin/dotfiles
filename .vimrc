@@ -1,7 +1,7 @@
 colorscheme molokai
 syntax on
 set number
-set title
+set notitle
 set ambiwidth=double
 set tabstop=2
 set expandtab

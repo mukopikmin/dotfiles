@@ -62,9 +62,6 @@ Conversion	Delete	Cancel
 Composition	Down	MoveCursorToEnd
 Conversion	Down	ConvertNext
 Suggestion	Down	PredictAndConvert
-Composition	Eisu	ToggleAlphanumericMode
-Conversion	Eisu	ToggleAlphanumericMode
-DirectInput	Eisu	IMEOn
 Precomposition	Eisu	ToggleAlphanumericMode
 Composition	End	MoveCursorToEnd
 Conversion	End	SegmentFocusLast
