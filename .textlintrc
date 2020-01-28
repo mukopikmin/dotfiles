@@ -10,5 +10,13 @@
                 "after": true
             }
         },
+        "max-ten": {
+            "max": 3
+        },
+        "spellcheck-tech-word": true,
+        "no-start-duplicated-conjunction": true,
+        "no-todo": true,
+        "web-plus-db": true,
+        "ja-no-abusage": true
     }
 }
