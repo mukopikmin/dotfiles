@@ -192,8 +192,6 @@ fi
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init - zsh)"
 
-# TeraTermでのキーバインディング設定
-bindkey "^[[3~" delete-char
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[4~" end-of-line
+# Goenv
+export PATH=$PATH:$GOPATH/bin
 
