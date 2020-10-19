@@ -18,5 +18,9 @@
         "no-todo": true,
         "web-plus-db": true,
         "ja-no-abusage": true
-    }
+    },
+    "plugins": [
+        "html",
+        "@textlint/markdown"
+    ]
 }
