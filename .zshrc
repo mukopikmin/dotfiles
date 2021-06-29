@@ -28,7 +28,7 @@ PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 # タイトルバーの表示設定
 # user@hostname: /current/path
 precmd() { eval 'echo -ne "\033]0;$USER@$HOST: $PWD\007"' }
- 
+
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
@@ -165,10 +165,14 @@ case ${OSTYPE} in
 
         export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.10-9/lib/pkgconfig
         export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-        
+
         # Android ADB command
         export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
         ;;
+        
+        # gcloud
+        source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+        source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
@@ -180,14 +184,9 @@ if uname -r | grep -i 'microsoft' > /dev/null; then
     alias open="cmd.exe /c start"
     alias cmd="cmd.exe"
     alias powershell="powershell.exe"
-    
+
     source ~/.profile
 fi
-
-# vim:set ft=zsh:
-
-# Added by Travis
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # Anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
@@ -196,3 +195,10 @@ eval "$(anyenv init - zsh)"
 # Goenv
 export PATH=$PATH:$GOPATH/bin
 
+# Pyenv
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
