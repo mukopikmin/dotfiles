@@ -150,11 +150,9 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-########################################
-# OS 別の設定
+################## Settings dependent on OS ##################
 case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
+    darwin*) # Settings for macOS
         export CLICOLOR=1
         alias ls='ls -G -F'
 
@@ -168,13 +166,12 @@ case ${OSTYPE} in
 
         # Android ADB command
         export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-        ;;
-        
+
         # gcloud
         source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
         source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-    linux*)
-        #Linux用の設定
+        ;;
+    linux*) # Settings for Linux
         alias ls='ls -F --color=auto'
         ;;
 esac
@@ -187,6 +184,8 @@ if uname -r | grep -i 'microsoft' > /dev/null; then
 
     source ~/.profile
 fi
+
+################## Settings for programming language environement ##################
 
 # Anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
